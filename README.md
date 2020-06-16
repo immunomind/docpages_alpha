@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [![Follow](https://img.shields.io/twitter/follow/immunomind.svg?style=social)](https://twitter.com/intent/follow?screen_name=immunomind)
 [![CRAN](http://www.r-pkg.org/badges/version-ago/immunarch?style=flat-square)](https://cran.r-project.org/package=immunarch)
 [![Downloads_all](http://cranlogs.r-pkg.org/badges/grand-total/immunarch)](http://www.r-pkg.org/pkg/immunarch)
@@ -246,3 +247,7 @@ For commercial or server use, please contact ImmunoMind via [support@immunomind.
 
 Contact us at support@immunomind.io for more information.
 -->
+=======
+# Immunarch_alpha
+Clonned Immunarch to test documentation pages.
+>>>>>>> Initial commit
