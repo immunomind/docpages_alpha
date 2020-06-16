@@ -1,12 +1,18 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [![Follow](https://img.shields.io/twitter/follow/immunomind.svg?style=social)](https://twitter.com/intent/follow?screen_name=immunomind)
 [![CRAN](http://www.r-pkg.org/badges/version-ago/immunarch?style=flat-square)](https://cran.r-project.org/package=immunarch)
+=======
+[![Follow](https://img.shields.io/twitter/follow/immunomind.svg?style=social)](https://twitter.com/intent/follow?screen_name=immunomind)
+[![CRAN](http://www.r-pkg.org/badges/version/immunarch?style=flat-square)](https://cran.r-project.org/package=immunarch)
+>>>>>>> initial
 [![Downloads_all](http://cranlogs.r-pkg.org/badges/grand-total/immunarch)](http://www.r-pkg.org/pkg/immunarch)
 [![Downloads_week](http://cranlogs.r-pkg.org/badges/last-week/immunarch)](http://www.r-pkg.org/pkg/immunarch)
 [![Issues](https://img.shields.io/github/issues/immunomind/immunarch?style=flat-square)](http://github.com/immunomind/immunarch/issues)
 [![CI](https://gitlab.com/immunomind/immunarch/badges/master/pipeline.svg?style=flat-square)](https://gitlab.com/immunomind/immunarch/-/jobs)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3367200.svg)](https://doi.org/10.5281/zenodo.3367200)
+<<<<<<< HEAD
 ![Visitors](https://visitor-badge.glitch.me/badge?page_id=immunomind.immunarch)
 [![Downloads_all](http://cranlogs.r-pkg.org/badges/grand-total/tcR)](http://www.r-pkg.org/pkg/tcR)
 [![Downloads_week](http://cranlogs.r-pkg.org/badges/last-week/tcR)](http://www.r-pkg.org/pkg/tcR)
@@ -17,10 +23,21 @@
 ## Why `immunarch`?
 - **Work with any type of data:** single-cell, bulk, data tables, databases --- you name it.
 - **Community at the heart:** ask questions, share knowledge and thrive in the community of almost 30,000 researchers and medical scientists worldwide. **Pfizer, Novartis, Regeneron, Stanford, UCSF** and **MIT** trust us.
+=======
+
+
+# `immunarch` --- An R Package for Painless Bioinformatics Analysis of T-cell and B-cell Immune Repertoire Data
+
+
+## Why `immunarch`?
+- **Work with any type of data:** single-cell, bulk, data tables, databases --- you name it.
+- **Community at the heart:** thrive in the community of almost 30,000 researchers and medical scientists worldwide, including researchers from **Pfizer, Novartis, Regeneron, Stanford, UCSF** and **MIT**.
+>>>>>>> initial
 - **One plot --- one line:** write a [whole PhD thesis in 8 lines of code](https://twitter.com/Nusob88/status/1127601201112129536) or reproduce almost any publication in 5-10 lines of `immunarch` code.
 - **Be on the bleeding edge of science:** we regularly update `immunarch` with the latest methods. [Let us know what you need!](#help-the-community)
 - **Automatic format detection and parsing** for all popular immunosequencing formats: from **MiXCR** and **ImmunoSEQ** to **10XGenomics** and **ArcherDX**.
 
+<<<<<<< HEAD
 
 ### Lightning-fast Start
 ```r
@@ -37,6 +54,16 @@ repDiversity(immdata$data) %>% vis(.by = "Status", .meta = immdata$meta)      # 
 `immunarch` is brought to you by [ImmunoMind](https://immunomind.io) --- a [UC Berkeley SkyDeck](https://www.forbes.com/sites/avivalegatt/2019/01/07/launch-your-startup-at-these-five-college-incubators/) startup. ImmunoMind Data Science tools for single-cell and immunomics [exploration](https://immunarch.com) and [biomarker discovery](https://immunomind.io) are trusted by researchers from top pharma companies and universities, including 10X Genomics, Pfizer, Regeneron, UCSF, MIT, Stanford, John Hopkins School of Medicine and Vanderbilt University.
 
 [![Follow](https://img.shields.io/twitter/follow/immunomind.svg?style=social)](https://twitter.com/intent/follow?screen_name=immunomind)
+=======
+And the **most important**: `immunarch` is not just a tool --- it is an **ecosystem**.
+
+
+## From Berkeley with devotion
+
+`immunarch` is brought to you by [ImmunoMind](https://immunomind.io) --- a [UC Berkeley SkyDeck](https://www.forbes.com/sites/avivalegatt/2019/01/07/launch-your-startup-at-these-five-college-incubators/) startup. 
+
+We have been helping researchers to extract insights from sequencing data of T-cell and antibody repertoires since the inception of the RepSeq domain. Our bioinformatics tools are trusted by top universities including Stanford, UCSF, MIT, King's College London and big pharma companies including Pfizer and Novartis.
+>>>>>>> initial
 
 
 ## Stay connected!
@@ -56,6 +83,11 @@ repDiversity(immdata$data) %>% vis(.by = "Status", .meta = immdata$meta)      # 
   <input type="hidden" name="_next" value="https://immunarch.com"/>
 </form>
 
+<<<<<<< HEAD
+=======
+Feel free to follow us on [Twitter](https://twitter.com/immunomind) as well.
+
+>>>>>>> initial
 ---
 
 ## Table of Contents
@@ -71,7 +103,11 @@ repDiversity(immdata$data) %>% vis(.by = "Status", .meta = immdata$meta)      # 
 
 ## Introduction
 
+<<<<<<< HEAD
 `immunarch` is an R package designed to analyse T-cell receptor (TCR) and B-cell receptor (BCR) repertoires, aimed at medical scientists and bioinformaticians. The mission of `immunarch` is to make immune sequencing data analysis as effortless as possible and help you focus on research instead of coding.
+=======
+`immunarch` is an R package designed to analyse T-cell receptor (TCR) and B-cell receptor (BCR) repertoires, aimed at medical scientists and bioinformaticians. The mission of `immunarch` is to make immune sequencing data analysis as effortless as possible and help you focus on research instead of coding. Follow us on [Twitter](https://twitter.com/immunomind) for news and updates.
+>>>>>>> initial
 
 
 ## Contact
@@ -106,7 +142,11 @@ Since releasing on CRAN is limited to one release per one-two months, you can in
 
 ```r
 install.packages("devtools") # skip this if you already installed devtools
+<<<<<<< HEAD
 devtools::install_github("immunomind/immunarch", ref="dev")
+=======
+devtools::install_github("immunomind/immunarch", ref="develop")
+>>>>>>> initial
 ```
 
 You can find the list of releases of `immunarch` here: https://github.com/immunomind/immunarch/releases
@@ -248,6 +288,7 @@ For commercial or server use, please contact ImmunoMind via [support@immunomind.
 
 Contact us at support@immunomind.io for more information.
 -->
+<<<<<<< HEAD
 =======
 # Immunarch_alpha
 =======
@@ -255,3 +296,5 @@ Contact us at support@immunomind.io for more information.
 >>>>>>> Update README.md
 Clonned Immunarch to test documentation pages.
 >>>>>>> Initial commit
+=======
+>>>>>>> initial

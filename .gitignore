@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .Rproj.user
 .Rhistory
 .RData
@@ -8,3 +9,7 @@ src/*.dll
 *.DS_Store
 docs/*
 
+=======
+.Rproj*
+*.DS_Store*
+>>>>>>> initial
