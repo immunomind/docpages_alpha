@@ -1,6 +1,8 @@
-# immunarch 0.4.3
+# NEWS
 
-## Documentation
+## immunarch 0.4.3
+
+### Documentation
 
 Make README more clear with the focus on installation.
 
@@ -8,7 +10,7 @@ Add a vignette for clonotype tracking.
 
 Add a vignette for kmer analysis.
 
-## Work in progress
+### Work in progress
 
 Kmers - analysis + plots, seqlogo / textlogo
 
@@ -16,15 +18,13 @@ Kmers - analysis + plots, seqlogo / textlogo
 
 `vis_public_frequencies`, `vis_public_clonotypes`, `vis_upset` for public repertoire visualisations.
 
-
-# immunarch 0.4.1 - 0.4.2
+## immunarch 0.4.1 - 0.4.2
 
 Minor releases with bug fixes and minor improvements.
 
+## immunarch 0.4.0
 
-# immunarch 0.4.0
-
-## Features
+### Features
 
 The `trackClonotype` function for tracking clonotypes.
 
@@ -52,7 +52,7 @@ Add an argument .add.layer to `vis_hist` to add any additional ggplot2 layers to
 
 Add grouping in `vis_hist` if data is grouped and `.grid` is T.
 
-Update MiXCR parser (yet again) to read MiXCR files from the May 2019 release.
+Update MiXCR parser \(yet again\) to read MiXCR files from the May 2019 release.
 
 Add `.target` argument to visualisation of incremental overlaps.
 
@@ -62,7 +62,7 @@ Add more MiXCR file variants parsing.
 
 `repLoad` returns sorted by "Clones" data frames now.
 
-## Bug fixes
+### Bug fixes
 
 Fix `geneUsage` when the first two columns with gene usages were swapped.
 
@@ -86,7 +86,7 @@ Fix a bug when clonal homeostasis and clonotype tracking don't work properly wit
 
 Fix D50, "top" and "clonal.prop" from repClonality returns wrong values when the input data frame is not sorted.
 
-## Minor updates
+### Minor updates
 
 Remove the "wei" option from `geneUsage` becase it's useless.
 
@@ -98,16 +98,15 @@ Add `.transpose` to `vis_heatmap`.
 
 Remove "fill" aesthetics warnings from `vis_heatmap`.
 
-Remove warnings "In parse_fun(.path[i]) : NAs introduced by coercion" when parsing MiXCR files.
+Remove warnings "In parse\_fun\(.path\[i\]\) : NAs introduced by coercion" when parsing MiXCR files.
 
 A lot or minor fixing and documentation improving to prepare for the CRAN release.
 
 Remove short function names.
 
+## immunarch 0.3.3
 
-# immunarch 0.3.3
-
-## Features
+### Features
 
 Parser for ArcherDX.
 
@@ -115,7 +114,7 @@ Update a parser for MiXCR to make it work with the "targetSequences" column form
 
 Update the coding function family to make it work with CDR3 amino acid sequences only.
 
-## Minor updates
+### Minor updates
 
 Replace all "unresolved" genes in ImmunoSEQ parsed files with NAs.
 
@@ -127,65 +126,55 @@ Fix parsing functions to not remove strings after dots in filenames.
 
 Update the post-parsing processing subroutine to remove all characters except for amino acid alphabet, `*` and `~` for compatability with all `immunarch`'s functions.
 
-## Documentation
+### Documentation
 
 Add a documentation to the coding function family.
 
 Update README.
 
-
-# immunarch 0.3.2
+## immunarch 0.3.2
 
 Remove MonetDBLite from dependencies because it got removed from CRAN.
 
-## Bug fixes
+### Bug fixes
+
 * Fix a bug in MiXCR parser.
 
+## immunarch 0.3.1
 
-# immunarch 0.3.1
+### Features
 
-## Features
 * Boxplots and barplots are now support statistical tests via the `.test` argument.
-
 * Add parsers for old VDJtools formats.
 
-## Documentation
+### Documentation
+
 * Update docs and vignettes with statistical tests information.
-
 * Add a note for list names to vignettes.
-
 * Documentation for clustering.
-
 * Documentation for dimension reduction.
-
 * Minor fix for `repOverlap` documentation.
 
-## Bug fixes
+### Bug fixes
+
 * Fix a grouping bug in visualisations.
-
 * Fix statistical tests from `ggpubr`.
-
 * Fix for `geneUsage` with `.type="family"`.
 
+## immunarch 0.3.0
 
-# immunarch 0.3.0
+### Features
 
-## Features
 * `fixVis` now supports the following legends: size, shape, color, fill, linetype.
-
 * `fixVis` can plot figures to R console / RStudio "Plots" tab.
-
 * `fixVis` now supports the number of columns in legends.
-
 * Support for the AIRR file format.
-
 * Experimental support for the 10xGenomics format.
-
 * Save and load `immunarch` format via `repSave` and `repLoad`.
-
 * Save and load VDJtools format via `repSave` and `repLoad`.
 
-## Bug fixes
-* `.a` and `.b` didn't passed to Tversky index.
+### Bug fixes
 
+* `.a` and `.b` didn't passed to Tversky index.
 * `fixVis` - fix a bug when users apply X/Y settings to the other axis.
+

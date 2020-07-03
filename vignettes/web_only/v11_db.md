@@ -1,41 +1,32 @@
 ---
-title: 'Annotate clonotypes using immune receptor databases'
+title: Annotate clonotypes using immune receptor databases
 author: '<a href="https://immunomind.io">ImmunoMind</a>'
-date: "support@immunomind.io"
+date: support@immunomind.io
 output:
-  html_document: 
+  html_document:
     fig_height: 8
     fig_width: 10
     theme: spacelab
-    toc: yes
+    toc: 'yes'
   pdf_document:
-    toc: yes
+    toc: 'yes'
   word_document:
-    toc: yes
+    toc: 'yes'
 ---
 
+# v11\_db
 
-<!--
-%\VignetteEngine{knitr::rmarkdown}
-%\VignetteIndexEntry{Annotate clonotypes using immune receptor databases}
-%\VignettePackage{immunarch}
--->
+\`\`\`{r setup, include=FALSE, echo=FALSE}
 
+## knitr::knit\_hooks$set\(optipng = knitr::hook\_optipng\)
 
+## knitr::opts\_chunk$set\(optipng = '-o7'\)
 
-  ```{r setup, include=FALSE, echo=FALSE}
-# knitr::knit_hooks$set(optipng = knitr::hook_optipng)
-# knitr::opts_chunk$set(optipng = '-o7')
+knitr::opts\_chunk$set\(echo = TRUE\) knitr::opts\_chunk$set\(fig.align = "center"\) knitr::opts\_chunk$set\(fig.width = 12\) knitr::opts\_chunk$set\(fig.height = 5\)
 
-knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(fig.align = "center")
-knitr::opts_chunk$set(fig.width = 12)
-knitr::opts_chunk$set(fig.height = 5)
+library\(immunarch\) data\(immdata\)
 
-library(immunarch)
-data(immdata)
-```
-
+```text
 # Introduction to immune receptor databases
 
 Databases with aggregated information about immune receptor specificity provide a straightforward way to annotate your data and find condition-associated receptors. `immunarch` supports tools to annotate your data using the most popular AIRR databases - VDJDB, McPAS-TCR and PIRD TBAdb.
@@ -126,12 +117,9 @@ vdjdb = dbLoad("https://gitlab.com/immunomind/immunarch/raw/dev-0.5.0/private/vd
 vdjdb
 ```
 
-To load VDJDB and filter out information you need to provide `.species`, `.chain` and `.pathology` arguments:
-```{r eval=T, message=F}
-vdjdb = dbLoad("https://gitlab.com/immunomind/immunarch/raw/dev-0.5.0/private/vdjdb.slim.txt.gz", "vdjdb", .species = "HomoSapiens", .chain = "TRB", .pathology = "CMV")
-vdjdb
-```
+To load VDJDB and filter out information you need to provide `.species`, `.chain` and `.pathology` arguments: \`\`\`{r eval=T, message=F} vdjdb = dbLoad\("[https://gitlab.com/immunomind/immunarch/raw/dev-0.5.0/private/vdjdb.slim.txt.gz](https://gitlab.com/immunomind/immunarch/raw/dev-0.5.0/private/vdjdb.slim.txt.gz)", "vdjdb", .species = "HomoSapiens", .chain = "TRB", .pathology = "CMV"\) vdjdb
 
+```text
 ### VDJDB search tables
 
 ```{r eval=T, message=F}
@@ -139,14 +127,11 @@ vdjdb_st = dbLoad("https://gitlab.com/immunomind/immunarch/raw/dev-0.5.0/private
 vdjdb_st
 ```
 
-### McPAS-TCR
+#### McPAS-TCR
 
-```{r eval=T, message=F, warning=F}
-mcpas = dbLoad("https://gitlab.com/immunomind/immunarch/raw/dev-0.5.0/private/McPAS-TCR.csv.gz", "mcpas", .species = "Human", .chain = "TRB", .pathology = "Cytomegalovirus (CMV)")
-mcpas
-```
+\`\`\`{r eval=T, message=F, warning=F} mcpas = dbLoad\("[https://gitlab.com/immunomind/immunarch/raw/dev-0.5.0/private/McPAS-TCR.csv.gz](https://gitlab.com/immunomind/immunarch/raw/dev-0.5.0/private/McPAS-TCR.csv.gz)", "mcpas", .species = "Human", .chain = "TRB", .pathology = "Cytomegalovirus \(CMV\)"\) mcpas
 
-
+```text
 ### TBAdb
 
 ```{r eval=F, message=F, warning=F}
@@ -154,15 +139,13 @@ tbadb = dbLoad("https://gitlab.com/immunomind/immunarch/raw/dev-0.5.0/private/TB
 tbadb
 ```
 
+### Repertoire annotation
 
-## Repertoire annotation
+The key `immunarch` function for annotation is `dbAnnotate`. As an input it requires repertoires to search in, a database to lookup from, and columns of interest such as CDR3 amino acid sequence or V gene segment names columns. If you want to try it on the test data packaged with `immunarch`, execute the following line of code before proceeding further:
 
-The key `immunarch` function for annotation is `dbAnnotate`. As an input it requires repertoires to search in, a database to lookup from, and columns of interest such as CDR3 amino acid sequence or V gene segment names columns. If you want to try it on the test data packaged with `immunarch`,  execute the following line of code before proceeding further:
+\`\`\`{r eval=F} data\(immdata\)
 
-```{r eval=F}
-data(immdata)
-```
-
+```text
 Just in a single line of code you are able to find all clonotypes with matching CDR3 amino acid sequences in the input data and VDJDB database:
 
 ```{r eval=T}
@@ -173,10 +156,9 @@ The "Samples" column specifies the number of samples in which the clonotype foun
 
 In the next example we will search the McPAS-TCR database for condition-associated sequences using both CDR3 amino acid sequences and V gene segments:
 
-```{r eval=T, message=F, warning=F}
-dbAnnotate(immdata$data, mcpas, c("CDR3.aa", "V.name"), c("CDR3.beta.aa", "TRBV"))
-```
+\`\`\`{r eval=T, message=F, warning=F} dbAnnotate\(immdata$data, mcpas, c\("CDR3.aa", "V.name"\), c\("CDR3.beta.aa", "TRBV"\)\)
 
+```text
 If you seek to search a database for a specific set of sequences, create a data frame with them and use it as a database file:
 
 ```{r eval=T}
@@ -185,38 +167,44 @@ local_db = data.frame(Seq = c("CASSDSSGGANEQFF", "CSARLAGGQETQYF"), V = c("TRBV6
 dbAnnotate(immdata$data, local_db, c("CDR3.aa", "V.name"), c("Seq", "V"))
 ```
 
+#### Visualisation
 
-### Visualisation
+Visualisation with the `vis()` function will be supported in the next major release of `immunarch`. You can use `ggplot2` to visualise distributions of found clonotypes.
 
-Visualisation with the `vis()` function will be supported in the next major release of `immunarch`. You can use `ggplot2` to visualise distributions of found clonotypes. 
-
-
-## Advanced filtering
+### Advanced filtering
 
 `immunarch` provides a very basic query interface that permits filtering by species types, chain types and pathology types only. To perform advanced filtering such as filtering by antigen epitope, you need to use R. In the most cases, filtering with the `dplyr` package is the most seamless way. Here is an example on how to use `dplyr` to filter out specific antigen epitopes from VDJDB:
 
-```{r eval=T, message=F}
-# Load the dplyr library
-library(dplyr)
+\`\`\`{r eval=T, message=F}
 
-# Load the database with immunarch
-vdjdb = dbLoad("https://gitlab.com/immunomind/immunarch/raw/dev-0.5.0/private/vdjdb.slim.txt.gz", "vdjdb", .species = "HomoSapiens", .chain = "TRB", .pathology = "CMV")
+## Load the dplyr library
 
-# Check which antigen epitopes are presented in the database
-table(vdjdb$antigen.epitope)
-```
+library\(dplyr\)
 
+## Load the database with immunarch
+
+vdjdb = dbLoad\("[https://gitlab.com/immunomind/immunarch/raw/dev-0.5.0/private/vdjdb.slim.txt.gz](https://gitlab.com/immunomind/immunarch/raw/dev-0.5.0/private/vdjdb.slim.txt.gz)", "vdjdb", .species = "HomoSapiens", .chain = "TRB", .pathology = "CMV"\)
+
+## Check which antigen epitopes are presented in the database
+
+table\(vdjdb$antigen.epitope\)
+
+```text
 ```{r eval=T, message=F}
 # Filter out all non NLVPMVATV epitopes
 vdjdb = vdjdb %>% filter(antigen.epitope == "NLVPMVATV")
 vdjdb
 ```
 
-```{r eval=T, message=F}
-# Check if everything is OK and there is no other epitopes
-table(vdjdb$antigen.epitope)
-```
+\`\`\`{r eval=T, message=F}
 
-# Get in contact with us
+## Check if everything is OK and there is no other epitopes
+
+table\(vdjdb$antigen.epitope\)
+
+\`\`\`
+
+## Get in contact with us
 
 Can not find an important feature? Have a question or found a bug? Contact us at support@immunomind.io
+
