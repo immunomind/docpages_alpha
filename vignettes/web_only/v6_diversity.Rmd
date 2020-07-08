@@ -1,38 +1,43 @@
 ---
-title: Diversity estimation
+title: 'Diversity estimation'
 author: '<a href="https://immunomind.io">ImmunoMind</a>'
-date: support@immunomind.io
+date: "support@immunomind.io"
 output:
   html_document:
     fig_height: 8
     fig_width: 10
     theme: spacelab
-    toc: 'yes'
+    toc: yes
   pdf_document:
-    toc: 'yes'
+    toc: yes
   word_document:
-    toc: 'yes'
+    toc: yes
 ---
 
-# v6\_diversity
 
-\`\`\`{r setup, include=FALSE, echo=FALSE}
+<!--
+%\VignetteEngine{knitr::rmarkdown}
+%\VignetteIndexEntry{Diversity estimation}
+%\VignettePackage{immunarch}
+-->
 
-## knitr::knit\_hooks$set\(optipng = knitr::hook\_optipng\)
 
-## knitr::opts\_chunk$set\(optipng = '-o7'\)
 
-knitr::opts\_chunk$set\(echo = TRUE\) knitr::opts\_chunk$set\(fig.align = "center"\) knitr::opts\_chunk$set\(fig.width = 12\) knitr::opts\_chunk$set\(fig.height = 6\)
+```{r setup, include=FALSE, echo=FALSE}
+# knitr::knit_hooks$set(optipng = knitr::hook_optipng)
+# knitr::opts_chunk$set(optipng = '-o7')
 
-library\(immunarch\)
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(fig.align = "center")
+knitr::opts_chunk$set(fig.width = 12)
+knitr::opts_chunk$set(fig.height = 6)
 
-## source\("../R/testing.R"\)
+library(immunarch)
+# source("../R/testing.R")
+# immdata = load_test_data()
+data(immdata)
+```
 
-## immdata = load\_test\_data\(\)
-
-data\(immdata\)
-
-```text
 Sevral approaches to the estimation of repertoire diversity are implemented in the `repDiversity` function. The `.method` parameter similarly to abovementionned functions sets the means for diversity estimation. You can choose one of the following methods:
 
 - `chao1` - Chao1 estimator is a nonparameteric asymptotic estimator of species richness (number of species in a population).
@@ -78,14 +83,15 @@ p3 + p6
 p4 + p4
 ```
 
-\`\`\`{r, warning=F, fig.width=12, fig.height=4.5} imm\_raref &lt;- repDiversity\(immdata$data, "raref", .verbose = F\)
+```{r, warning=F, fig.width=12, fig.height=4.5}
+imm_raref <- repDiversity(immdata$data, "raref", .verbose = F)
 
-p1 &lt;- vis\(imm\_raref\) p2 &lt;- vis\(imm\_raref, .by = "Status", .meta = immdata$meta\)
+p1 <- vis(imm_raref)
+p2 <- vis(imm_raref, .by = "Status", .meta = immdata$meta)
 
 p1 + p2
+```
 
-```text
 ```{r, warning=F, fig.width=8, fig.height=4.5}
 repDiversity(immdata$data, "raref", .verbose = F) %>% vis(.log = TRUE)
 ```
-
